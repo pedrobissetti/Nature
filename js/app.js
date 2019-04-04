@@ -19,19 +19,19 @@ $('[data-group]').each(function() {
 	var $allTarget = $(this).find('[data-target]'),
 			$allClick = $(this).find('[data-click]'),
 			activeClass = 'active';
-	
+
 	$allTarget.first().addClass(activeClass);
 	$allClick.first().addClass(activeClass);
-	
+
 	$allClick.click(function(e){
 		e.preventDefault();
-		
+
 		var id = $(this).data('click'),
 				$target = $('[data-target="' + id + '"]');
-		
+
 		$allClick.removeClass(activeClass);
 		$allTarget.removeClass(activeClass);
-		
+
 		$target.addClass(activeClass);
 		$(this).addClass(activeClass);
 	});
@@ -47,7 +47,7 @@ $('.menu-nav a[href^="#"]').click(function(e) {
 
 	$('html, body').animate({
 		scrollTop: targetOffset - menuHeight
-	}, 500);		
+	}, 500);
 });
 // FIM SCROLL SUAVE
 
@@ -61,16 +61,16 @@ $('.logo').click(function(e){
 // FIM SCROLL SUAVE PARA O TOPO
 
 // HOVER MENU
-$('section').each(function(){
+$('section').each(function() {
 	var height = $(this).height(),
 			offsetTop = $(this).offset().top,
 			menuHeight = $('.menu').innerHeight(),
 			id = $(this).attr('id'),
 			$itemMenu = $('a[href="#' + id + '"]');
 
-	$(window).scroll(debounce(function(){
+	$(window).scroll(debounce(function() {
 		var scrollTop = $(window).scrollTop();
-		if(offsetTop - menuHeight < scrollTop && offsetTop + height - menuHeight > scrollTop) {
+		if (offsetTop - menuHeight < scrollTop && offsetTop + height - menuHeight > scrollTop) {
 			$itemMenu.addClass('active');
 		} else {
 			$itemMenu.removeClass('active');
@@ -86,7 +86,7 @@ $('.mobile-btn').click(function(){
 // FIM MENU MOBILE
 
 // SLIDES
-(function(){
+(function() {
 function slider(sliderName, velocidade) {
 	var sliderClass = '.' + sliderName,
 			activeClass = 'active',
@@ -103,8 +103,8 @@ function slider(sliderName, velocidade) {
 	function rotateSlide(){
 		var activeSlide = $(sliderClass + ' > .' + activeClass),
 				nextSlide = activeSlide.next();
-		
-		if(nextSlide.length == 0){
+
+		if (nextSlide.length == 0){
 			nextSlide = $(sliderClass + ' > :first');
 		}
 		activeSlide.removeClass(activeClass);
